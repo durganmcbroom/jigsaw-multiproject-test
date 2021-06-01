@@ -1,3 +1,5 @@
 rootProject.name = 'jigsaw-multiproject-test'
+
 include ':api.example', ':base.example'
+include ':base.tests'
 

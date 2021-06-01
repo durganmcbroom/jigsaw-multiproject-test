@@ -1,4 +1,5 @@
 module base.example {
     requires kotlin.stdlib;
-    requires api.example;
+    exports org.example.base;
+    requires transitive api.example;
 }
