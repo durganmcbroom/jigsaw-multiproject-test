@@ -1,7 +1,6 @@
 plugins {
     id 'java-library'
     id 'org.jetbrains.kotlin.jvm' version '1.5.0'
-//    id 'org.javamodularity.moduleplugin' version '1.8.6' apply false
 }
 
 group 'org.example'
@@ -16,10 +15,11 @@ dependencies {
     implementation project(':base.example')
 }
 
+
+
 subprojects {
     apply plugin: 'java-library'
     apply plugin: 'org.jetbrains.kotlin.jvm'
-//    apply plugin: 'org.javamodularity.moduleplugin'
 
     repositories {
         mavenCentral()
@@ -28,4 +28,27 @@ subprojects {
     dependencies {
         implementation "org.jetbrains.kotlin:kotlin-stdlib"
     }
+
+    compileKotlin.destinationDir = compileJava.destinationDir
+
+    test {
+        useJUnitPlatform()
+    }
+
+//    sourceSets {
+//        main.java.srcDirs = []
+//        main.kotlin.srcDirs = ['src/main/java', 'src/main/kotlin']
+////        main.resources.srcDirs = ['src/main/resources']
+//    }
+
+//    sourceSets {
+//        main {
+//            java {
+//                srcDirs = ['src/main/java', 'src/main/kotlin']
+//            }
+//            kotlin {
+//                srcDirs = ['']
+//            }
+//        }
+//    }
 }
